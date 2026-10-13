@@ -77,12 +77,12 @@ fn main() {
                     && eth.get_ethertype() == EtherTypes::Ipv4
                     && let Some(packet) = handle_ipv4(eth.payload())
                 {
+                    dbg!(&packet);
                     packets.push(packet);
                 }
             }
             Err(e) => eprintln!("read error: {e}"),
         }
-        dbg!(&packets);
     }
 }
 
